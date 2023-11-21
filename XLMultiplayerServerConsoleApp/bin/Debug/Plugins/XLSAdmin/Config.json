@@ -1,0 +1,38 @@
+﻿{
+  "Administrators": [
+    "127.0.0.1",
+    "0.0.0.0"
+  ],
+  "ReserveAdminSlots": true,
+
+  "ForceUID": false,
+
+  "MapRotation": false,
+  "RotationTimer": 20,
+
+  "VoteKickTimer": 10,
+  "VoteCooldownTimer": 20,
+
+  "BlockedUserNames": [ "badname1", "badname2" ],
+
+  "OffensiveWords": [ "badword1", "badword2" ],
+
+  "Links": {
+    "Discord": "LINK TO DISCORD",
+    "MapLink": "LINK TO MAPS",
+    "Donate": "DONATION LINK"
+  },
+
+  "LogSettings": {
+    "Chat": true,
+    "Commands": true,
+    "Connections": true
+  },
+
+  "DiscordSettings": {
+    "WebHookURL": "WEBHOOK URI",
+    "Chat": false,
+    "Commands": false,
+    "Connections": false
+  }
+}

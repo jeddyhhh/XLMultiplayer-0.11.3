@@ -1,0 +1,7 @@
+﻿{
+  "Name": "XLS Admin Plugin",
+  "AssemblyName": "XLSAdmin.dll",
+  "StartupMethod": "XLSAdmin.Main:Load",
+  "ServerVersion": "0.11.3", 
+  "DependencyZIP": "XLSAdminClient.zip"
+}
