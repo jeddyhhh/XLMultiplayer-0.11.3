@@ -54,7 +54,7 @@ namespace ExamplePlugin {
 				}
 				
 				pluginInfo.LogMessage("Hello friend", ConsoleColor.Green);
-				await Task.Delay(5000);
+				await TaskEx.Delay(5000);
 			}
 		}
 
@@ -67,7 +67,7 @@ namespace ExamplePlugin {
 					pluginInfo.DisconnectPlayer(pluginInfo.playerList[target].GetPlayer());
 				}
 
-				await Task.Delay(60000);
+				await TaskEx.Delay(60000);
 			}
 		}
 

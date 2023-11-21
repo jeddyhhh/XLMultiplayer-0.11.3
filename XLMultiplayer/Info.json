@@ -1,8 +1,8 @@
 {
   "Id": "XLMultiplayer",
   "DisplayName": "Silents Multiplayer Mod",
-  "Author": "Silentbaws",
-  "Version": "0.11.2",
+  "Author": "Silentbaws modified by JeddyH",
+  "Version": "0.11.3",
   "ManagerVersion": "0.22.6",
   "Requirements": [ ],
   "AssemblyName": "XLMultiplayer.dll",

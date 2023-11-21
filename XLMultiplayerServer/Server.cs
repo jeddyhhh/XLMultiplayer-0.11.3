@@ -45,7 +45,7 @@ namespace XLMultiplayerServer {
 	
 	public class Server {
 		// TODO: Update version number with versions
-		private string VERSION_NUMBER = "0.11.2";
+		private string VERSION_NUMBER = "0.11.3";
 
 		public LogMessage LogMessageCallback;
 		public LogChatMessage LogChatMessageCallback;
@@ -80,7 +80,16 @@ namespace XLMultiplayerServer {
 		[JsonProperty("Paypal_Link")]
 		public static string PAYPAL { get; private set; } = "";
 
-		[JsonProperty("Max_Upload_Bytes_Per_Second")]
+        [JsonProperty("ExternalIP")]
+        private static readonly string EXTERNALIP = "";
+
+        [JsonProperty("MasterServer")]
+        private static readonly string MASTERSERVER = "";
+
+        [JsonProperty("MasterServerPort")]
+        private static readonly string MASTERSERVERPORT = "";
+
+        [JsonProperty("Max_Upload_Bytes_Per_Second")]
 		private static int MAX_UPLOAD = 15400000;
 
 		[JsonProperty("Max_Queued_Sending_Bytes")]
@@ -1244,9 +1253,9 @@ namespace XLMultiplayerServer {
 			}
 		}
 
-		private async void StartAnnouncing() {
+        private async void StartAnnouncing() {
 			var client = new HttpClient();
-			while (true && API_KEY != "") {
+			while (true) {
 				try {
 					int currentPlayers = 0;
 					foreach (Player player in players) {
@@ -1254,27 +1263,31 @@ namespace XLMultiplayerServer {
 							currentPlayers++;
 					}
 
-					var values = new Dictionary<string, string> {
-					{ "maxPlayers",  players.Length.ToString() },
-					{ "serverName", SERVER_NAME },
-					{ "currentPlayers", currentPlayers.ToString() },
-					{ "serverPort", port.ToString() },
-					{ "serverVersion", VERSION_NUMBER },
-					{ "apiKey", API_KEY },
-					{ "mapName", ENFORCE_MAPS ? mapList[currentMapHash] : "Not enforcing maps" },
-					{ "paypal", PAYPAL } };
+                    var values = new Dictionary<string, string> {
+                    { "name", SERVER_NAME },
+                    { "ip", EXTERNALIP.ToString() },
+                    { "port", port.ToString() },
+                    { "version", VERSION_NUMBER },
+                    { "maxplayers",  players.Length.ToString() },
+					{ "currentplayers", currentPlayers.ToString() },
+					{ "mapname", ENFORCE_MAPS ? mapList[currentMapHash] : "Not enforcing maps" }};
 
 					var content = new FormUrlEncodedContent(values);
 
-					var response = await client.PostAsync("https://davisellwood-site.herokuapp.com/api/sendserverinfo/", content);
-					if (response.StatusCode != HttpStatusCode.OK) {
+					var masterServerUrl = $"http://{MASTERSERVER}:{MASTERSERVERPORT}/api/postsxlservers";
+
+                    LogMessageCallback("Pinging master server: " + masterServerUrl, ConsoleColor.White);
+
+                    var response = await client.PostAsync(masterServerUrl, content);
+                    LogMessageCallback("Broadcasting server to master server", ConsoleColor.White);
+                    if (response.StatusCode != HttpStatusCode.OK) {
 						LogMessageCallback($"Error announcing: {response.StatusCode}", ConsoleColor.White);
-						await Task.Delay(120000);
+						await TaskEx.Delay(120000);
 					}
 				} catch (Exception e) {
 					client = new HttpClient();
 				}
-				await Task.Delay(10000);
+				await TaskEx.Delay(10000);
 			}
 		}
 	}

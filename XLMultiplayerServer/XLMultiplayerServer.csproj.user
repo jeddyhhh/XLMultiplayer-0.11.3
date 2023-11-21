@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferencePath>D:\Games\Skater XL 1.1\SkaterXL_Data\Managed\;E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\;E:\MODDING\SkaterXL2023Multi\WorkingMod\;D:\Games\Skater XL 1.1\SkaterXL_Data\Managed\UnityModManager\</ReferencePath>
+  </PropertyGroup>
+</Project>

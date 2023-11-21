@@ -15,6 +15,8 @@ using UnityEngine.Networking;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Diagnostics;
+using I2.Loc.SimpleJSON;
+using System.Xml.Linq;
 
 namespace XLMultiplayer {
 	class Server {
@@ -160,7 +162,11 @@ namespace XLMultiplayer {
 					GameObject.DontDestroyOnLoad(newMenuObject);
 
 					NewMultiplayerMenu.Instance.StartCoroutine(Main.StartUpdatingServerList());
-				}
+                    NewMultiplayerMenu.Instance.StartCoroutine(Main.StartUpdatingServerList()); //doesn't seem to like only doing this once
+                    NewMultiplayerMenu.Instance.StartCoroutine(Main.StartUpdatingServerList()); //doesn't seem to like only doing this once
+                    NewMultiplayerMenu.Instance.StartCoroutine(Main.StartUpdatingServerList()); //doesn't seem to like only doing this once
+                    NewMultiplayerMenu.Instance.StartCoroutine(Main.StartUpdatingServerList()); //doesn't seem to like only doing this once
+                }
 
 				MultiplayerUtils.StartMapLoading();
 
@@ -294,10 +300,19 @@ namespace XLMultiplayer {
 			Directory.Delete(dir);
 		}
 
-		public static IEnumerator StartUpdatingServerList() {
+
+        public static IEnumerator StartUpdatingServerList() {
 			while (true) {
 				if (NewMultiplayerMenu.Instance != null && NewMultiplayerMenu.Instance.serverBrowserMenu.activeSelf) {
-					UnityWebRequest www = UnityWebRequest.Get("http://www.davisellwood.com/api/getservers/");
+
+                    JObject o1 = JObject.Parse(File.ReadAllText(@"./Mods/XLMultiplayer/MasterServer.json"));
+
+					var MASTERSERVER = (string)o1["MasterServer"];
+					var MASTERSERVERPORT = (string)o1["MasterServerPort"];
+
+                    var masterServerUrl = $"http://{MASTERSERVER}:{MASTERSERVERPORT}/api/getsxlservers";
+
+                    UnityWebRequest www = UnityWebRequest.Get(masterServerUrl);
 					yield return www.SendWebRequest();
 
 					if (www.isNetworkError || www.isHttpError) {
@@ -312,9 +327,11 @@ namespace XLMultiplayer {
 						var responseString = www.downloadHandler.text;
 						responseString = responseString.Remove(0, 1).Remove(responseString.Length - 2, 1).Replace("\\\"", "\"");
 
-						JArray a = JArray.Parse(responseString);
+                        //JArray a = JArray.Parse(responseString);
+                        //JArray array2 = Newtonsoft.Json.JsonConvert.DeserializeObject<JArray>(responseString);
+                        //var obj = JObject.Parse(responseString).Children();
 
-						while (NewMultiplayerMenu.Instance.serverItems.Count > 0) {
+                        while (NewMultiplayerMenu.Instance.serverItems.Count > 0) {
 							bool allDestroyed = true;
 							foreach (RectTransform trans in NewMultiplayerMenu.Instance.serverItems) {
 								if (trans != null) {
@@ -331,42 +348,71 @@ namespace XLMultiplayer {
 							}
 						}
 
-						foreach (JObject o in a.Children<JObject>()) {
-							foreach (JProperty p in o.Properties()) {
-								if (p.Name == "fields") {
-									Server newServer = new Server();
-									foreach (JObject o2 in p.Children<JObject>()) {
-										foreach (JProperty p2 in o2.Properties()) {
-											switch (p2.Name.ToLower()) {
-												case "name":
-													newServer.name = (string)p2.Value;
-													break;
-												case "ip":
-													newServer.ip = (string)p2.Value;
-													break;
-												case "port":
-													newServer.port = (string)p2.Value;
-													break;
-												case "version":
-													newServer.version = (string)p2.Value;
-													break;
-												case "maxplayers":
-													newServer.playerMax = (int)p2.Value;
-													break;
-												case "currentplayers":
-													newServer.playerCurrent = (int)p2.Value;
-													break;
-												case "mapname":
-													newServer.mapName = (string)p2.Value;
-													break;
-											}
-										}
-									}
-									NewMultiplayerMenu.Instance.AddServerItem(newServer.ip, newServer.port, newServer.name, newServer.mapName, newServer.version, $"{newServer.playerCurrent} / {newServer.playerMax}", ClickServerItem);
-								}
-							}
-						}
-						yield return new WaitForSeconds(30);
+                        var array = JArray.Parse(responseString);
+                        foreach (JObject obj in array.Cast<JObject>())
+                        {
+                            Server newServer = new Server
+                            {
+                                name = obj.Value<string>("name"),
+                                ip = obj.Value<string>("ip"),
+                                port = obj.Value<string>("port"),
+                                version = obj.Value<string>("version"),
+                                playerMax = obj.Value<int>("maxplayers"),
+                                playerCurrent = obj.Value<int>("currentplayers"),
+                                mapName = obj.Value<string>("mapname")
+                            };
+                            NewMultiplayerMenu.Instance.AddServerItem(newServer.ip, newServer.port, newServer.name, newServer.mapName, newServer.version, $"{newServer.playerCurrent} / {newServer.playerMax}", ClickServerItem);
+                        }
+
+       //                 foreach (var data in obj)
+       //                 {
+       //                     Server newServer = new Server();
+       //                     newServer.name = (string)data["name"];
+							//newServer.ip = (string)data["ip"];
+       //                     newServer.port = (string)data["port"];
+       //                     newServer.version = (string)data["version"];
+							//newServer.playerMax = (int)data["maxplayers"];
+       //                     newServer.playerCurrent = (int)data["currentplayers"];
+       //                     newServer.mapName = (string)data["mapname"];
+       //                     NewMultiplayerMenu.Instance.AddServerItem(newServer.ip, newServer.port, newServer.name, newServer.mapName, newServer.version, $"{newServer.playerCurrent} / {newServer.playerMax}", ClickServerItem);
+       //                 }
+
+                        //foreach (JObject o in a.Children<JObject>()) {
+						//	foreach (JProperty p in o.Properties()) {
+						//		if (p.Name == "fields") {
+						//			Server newServer = new Server();
+						//			foreach (JObject o2 in p.Children<JObject>()) {
+						//				foreach (JProperty p2 in o2.Properties()) {
+						//					switch (p2.Name.ToLower()) {
+						//						case "name":
+						//							newServer.name = (string)p2.Value;
+						//							break;
+						//						case "ip":
+						//							newServer.ip = (string)p2.Value;
+						//							break;
+						//						case "port":
+						//							newServer.port = (string)p2.Value;
+						//							break;
+						//						case "version":
+						//							newServer.version = (string)p2.Value;
+						//							break;
+						//						case "maxplayers":
+						//							newServer.playerMax = (int)p2.Value;
+						//							break;
+						//						case "currentplayers":
+						//							newServer.playerCurrent = (int)p2.Value;
+						//							break;
+						//						case "mapname":
+						//							newServer.mapName = (string)p2.Value;
+						//							break;
+						//					}
+						//				}
+						//			}
+						//			NewMultiplayerMenu.Instance.AddServerItem(newServer.ip, newServer.port, newServer.name, newServer.mapName, newServer.version, $"{newServer.playerCurrent} / {newServer.playerMax}", ClickServerItem);
+						//		}
+						//	}
+						//}
+						yield return new WaitForSeconds(1);
 					}
 				} else {
 					yield return new WaitForSeconds(1);

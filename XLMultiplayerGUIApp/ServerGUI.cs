@@ -48,7 +48,7 @@ namespace XLMultiplayerGUIApp {
 
 			multiplayerServer = new Server(LogMessageCallback, LogChatMessageCallback);
 
-			var serverTask = Task.Run(() => multiplayerServer.ServerLoop());
+			var serverTask = TaskEx.Run(() => multiplayerServer.ServerLoop());
 		}
 
 		private void lsbPlayerList_MouseDown(object sender, MouseEventArgs e) {

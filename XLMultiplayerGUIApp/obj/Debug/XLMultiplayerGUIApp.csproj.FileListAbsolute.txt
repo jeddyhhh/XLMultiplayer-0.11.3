@@ -1,0 +1,6 @@
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerGUIApp\obj\Debug\XLMultiplayerGUIApp.csproj.App.config
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerGUIApp\obj\Debug\XLMultiplayerGUIApp.csproj.AssemblyReference.cache
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerGUIApp\obj\Debug\XLMultiplayerGUIApp.Properties.Resources.resources
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerGUIApp\obj\Debug\XLMultiplayerGUIApp.ServerGUI.resources
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerGUIApp\obj\Debug\XLMultiplayerGUIApp.csproj.GenerateResource.cache
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerGUIApp\obj\Debug\XLMultiplayerGUIApp.csproj.CoreCompileInputs.cache
