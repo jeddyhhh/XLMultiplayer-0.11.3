@@ -1,3 +1,17 @@
-E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.csproj.App.config
+E:\Program Files (x86)\Steam\steamapps\common\Skater XL\Mods\XLMultiplayer\GameNetworkingSockets.dll
+E:\Program Files (x86)\Steam\steamapps\common\Skater XL\Mods\XLMultiplayer\libcrypto-1_1-x64.dll
+E:\Program Files (x86)\Steam\steamapps\common\Skater XL\Mods\XLMultiplayer\libprotobuf.dll
+E:\Program Files (x86)\Steam\steamapps\common\Skater XL\Mods\XLMultiplayer\Info.json
+E:\Program Files (x86)\Steam\steamapps\common\Skater XL\Mods\XLMultiplayer\XLMultiplayer.dll.config
+E:\Program Files (x86)\Steam\steamapps\common\Skater XL\Mods\XLMultiplayer\XLMultiplayer.dll
+E:\Program Files (x86)\Steam\steamapps\common\Skater XL\Mods\XLMultiplayer\XLMultiplayer.pdb
 E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.csproj.AssemblyReference.cache
 E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.csproj.CoreCompileInputs.cache
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.csproj.CopyComplete
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.dll
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.pdb
+E:\MODDING\SkaterXL2023Multi\master\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.csproj.AssemblyReference.cache
+E:\MODDING\SkaterXL2023Multi\master\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.csproj.CoreCompileInputs.cache
+E:\MODDING\SkaterXL2023Multi\master\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.csproj.CopyComplete
+E:\MODDING\SkaterXL2023Multi\master\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.dll
+E:\MODDING\SkaterXL2023Multi\master\XLMultiplayer-master\XLMultiplayer\obj\Debug\XLMultiplayer.pdb

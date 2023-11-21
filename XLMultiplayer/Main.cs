@@ -412,7 +412,7 @@ namespace XLMultiplayer {
 						//		}
 						//	}
 						//}
-						yield return new WaitForSeconds(1);
+						yield return new WaitForSeconds(30);
 					}
 				} else {
 					yield return new WaitForSeconds(1);
