@@ -5,6 +5,9 @@
   "Enforce_Map": true,
   "Maps_Folder": "",
   "MessageOTD": "motd:15:ff0000 This is an example motd that displays for 15 seconds in solid red",
+  "ExternalIP":"0.0.0.0",
+  "MasterServer":"45.61.144.90",
+  "MasterServerPort":"7778",
 
   "PUBLIC SERVER OPTIONS": "THESE ARE NOT NEEDED FOR YOUR PRIVATE SERVER",
   "API_Key": "",
