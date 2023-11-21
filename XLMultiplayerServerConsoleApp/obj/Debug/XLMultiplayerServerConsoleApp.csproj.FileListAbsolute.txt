@@ -1,0 +1,3 @@
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerServerConsoleApp\obj\Debug\XLMultiplayerServerConsoleApp.csproj.App.config
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerServerConsoleApp\obj\Debug\XLMultiplayerServerConsoleApp.csproj.AssemblyReference.cache
+E:\MODDING\SkaterXL2023Multi\XLMultiplayer-master\XLMultiplayerServerConsoleApp\obj\Debug\XLMultiplayerServerConsoleApp.csproj.CoreCompileInputs.cache
