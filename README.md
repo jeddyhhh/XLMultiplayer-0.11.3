@@ -5,7 +5,7 @@ All I've done is modify the existing mod to accept a custom master server IP and
 If there was an issue in the original 0.11.2 mod, it will also be here.
 
 Current issues:
-- Custom maps not working, could be related to hashing newer maps made for new versions of SXL
+- Custom maps not working. Something to do with XLMultiplayer mod not hashing maps correctly.
 - XLSAdmin's client side plugin for XL Multiplayer fails to load, could be a .Net mismatch, not sure at all tbh. You can just delete the zip file it sends
 and everything works fine but you lose the ability to ban via hardware ID's.
 
