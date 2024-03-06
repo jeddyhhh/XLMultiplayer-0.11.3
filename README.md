@@ -1,6 +1,4 @@
 # XLMultiplayer
-Skater XL Multiplayer mod by silentbaws has reached end of life. With the release of official multiplayer there's no longer a space for the mod and will shutdown at the end of May 2021
-
 All I've done is modify the existing mod to accept a custom master server IP and write a master server in node.js. 
 If there was an issue in the original 0.11.2 mod, it will also be here.
 
