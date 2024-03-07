@@ -2,6 +2,8 @@
 All I've done is modify the existing mod to accept a custom master server IP and write a master server in node.js. 
 If there was an issue in the original 0.11.2 mod, it will also be here.
 
+This is the source code, if you want the complied mod for SXL, go to the Downloads section.
+
 Current issues:
 - Custom maps not working. Something to do with XLMultiplayer mod not hashing maps correctly.
 - XLSAdmin's client side plugin for XL Multiplayer fails to load, could be a .Net mismatch, not sure at all tbh. You can just delete the zip file it sends
