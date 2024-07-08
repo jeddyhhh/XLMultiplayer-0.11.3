@@ -1,4 +1,5 @@
 # XLMultiplayer
+Update 8th July 2024 - Multiplyer is down again, I'm running a master server at 112.141.184.159:7778 - This address may go up and down, so good luck joining, this mod is buggy as hell atm...
 All I've done is modify the existing mod to accept a custom master server IP and write a master server in node.js. 
 If there was an issue in the original 0.11.2 mod, it will also be here.
 
