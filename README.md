@@ -11,4 +11,4 @@ and everything works fine but you lose the ability to ban via hardware ID's.
 
 Official multiplayer went down for several days, so there is a space for this mod, modified to accept a custom IP for a new master server found here: https://github.com/jeddyhhh/New-Silents-Mod-Master-Server/tree/main
 
-For SXL 1.1.0.4 only, porting this to 1.2.2.8 might be a challenge, I can see some pretty drastic differences between the 2 versions. 
+For SXL 1.1.0.4 (or 1.1.0.2), porting this to 1.2.2.8 might be a challenge, I can see some pretty drastic differences between the 2 versions. 
